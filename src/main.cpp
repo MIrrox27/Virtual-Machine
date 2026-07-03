@@ -7,21 +7,16 @@
 #include "console.hpp"
 
 
-int program[] = {
-  PUSH, 10,  
-  PUSH, 5,   
-  ADD,       
-  PRINT,     
-  HALT       
-};
-
-
 int stack[256];
 int sp = -1;
 
 
 
 int main(){
+  std::string str_command;
+  std::cout << "> ";
+  std::cin >> str_command;
+  std::vector<int> program = cin_parser();
 
   int ip = 0;
   bool running = true;
