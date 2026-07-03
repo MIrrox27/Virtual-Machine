@@ -25,34 +25,36 @@ int main(){
     int opcode = program[ip]; // команда, которая выполняется сейчас
 
     switch (opcode){
+      case HALT:
+        running = false;
+        break;
+
       case PUSH:
         ip++;
         stack[++sp] = program[ip]; 
         break;
 
-      case ADD:
-        int arg1 = stack[--sp];
-        int arg2 = stack[--sp];
-        stack[++sp] = arg1 + arg2;
-        break;
+      case ADD: {
+        int a = stack[sp--];
+        int b = stack[sp--];
+        stack[++sp] = a + b;
+        break;}
 
       case SUB:
-        int arg1 = stack[--sp];
-        int arg2 = stack[--sp];
+        {int arg1 = stack[sp--];
+        int arg2 = stack[sp--];
         stack[++sp] = arg1 - arg2;
-        break;
+        break;}
       
-      case PRINT:
-        int arg = stack[--sp];
-        std::cout << arg << std::endl;
+      case PRINT: {
+        std::cout << stack[sp--] << std::endl;
         break;
+      }
+        
       
-      case HALT:
-        running = false;
-        break;
-      
-      default:
-        break;
+      default:{
+        std::cout << "Unexpexted argument" << std::endl;
+        break;}
     }
     ip++; 
 
