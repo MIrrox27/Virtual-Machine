@@ -17,13 +17,7 @@ enum OpCodes {
 };
 
 
-std::map<std::string, OpCodes> StringCommands = {
-  {"HALT", HALT},
-  {"PUSH", PUSH},
-  {"ADD", ADD},
-  {"SUB", SUB},
-  {"PRINT", PRINT}
-};
+
 
 
 
