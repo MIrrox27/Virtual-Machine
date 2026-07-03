@@ -6,18 +6,25 @@
 #include <sstream>
 #include <vector>
 #include <cctype>
-#include <algorithm>
+#include <charconv>
+#include <iostream>
 
 #include "console.hpp"
 
-bool is_number(const std::string& str){
-  if (str.empty()) return false;
-  return std::all_of(str.begin(), str.end(), [](unsigned char c){
-    return std::isdigit(c);
-  });
-
+bool is_number(const std::string& str) {
+    double val;
+    auto [ptr, ec] = std::from_chars(str.data(), str.data() + str.size(), val);
+    // true, если парсинг прошел успешно и вся строка была прочитана
+    return ec == std::errc() && ptr == str.data() + str.size();
 }
 
+std::map<std::string, OpCodes> StringCommands = {
+  {"HALT", HALT},
+  {"PUSH", PUSH},
+  {"ADD", ADD},
+  {"SUB", SUB},
+  {"PRINT", PRINT}
+};
 
 // функция для обработки полной команды, пример: PUSH 10 PUSH 20 ADD PUSH 5 SUB PRINT HALT
 std::vector<int> cin_parser(std::string full_command){ 
