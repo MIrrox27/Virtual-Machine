@@ -59,6 +59,7 @@ int main(){
       default:
         break;
     }
+    ip++; 
 
   }
   
