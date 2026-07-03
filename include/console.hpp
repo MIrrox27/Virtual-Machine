@@ -5,8 +5,10 @@
 #define CONSOLE_HPP
 
 #include <string>
+#include <map>
 
 enum OpCodes {
+  ERR = -1,
   HALT = 0,
   PUSH = 1,
   ADD = 2,
@@ -14,8 +16,19 @@ enum OpCodes {
   PRINT = 4
 };
 
-OpCodes cin_parser(std::string command);
 
+std::map<std::string, OpCodes> StringCommands = {
+  {"HALT", HALT},
+  {"PUSH", PUSH},
+  {"ADD", ADD},
+  {"SUB", SUB},
+  {"PRINT", PRINT}
+};
+
+
+
+std::vector<int> cin_parser(std::string command);
+bool is_number(const std::string& str);
 
 
 
