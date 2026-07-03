@@ -16,7 +16,7 @@ int main(){
   std::string str_command;
   std::cout << "> ";
   std::cin >> str_command;
-  std::vector<int> program = cin_parser();
+  std::vector<int> program = cin_parser(str_command);
 
   int ip = 0;
   bool running = true;
