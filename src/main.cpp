@@ -87,6 +87,12 @@ int main(){
           break;
         }
         
+        case JIF: {
+          ip++;
+          if (program[ip] != 0)
+            ip = program[ip];
+          break;
+        }
         
         case PRINT: {
           std::cout << stack[sp] << std::endl;
