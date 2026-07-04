@@ -23,6 +23,13 @@ std::map<std::string, OpCodes> StringCommands = {
   {"PUSH", PUSH},
   {"ADD", ADD},
   {"SUB", SUB},
+  {"MUL", MUL},
+  {"DIV", DIV},
+  {"MOD", MOD},
+  {"POW", POW},
+  {"SQRT", SQRT},
+  {"JUMP", JUMP},
+  {"JIF", JIF},
   {"PRINT", PRINT}
 };
 
