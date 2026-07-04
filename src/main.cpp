@@ -7,56 +7,62 @@
 #include "console.hpp"
 
 
-int stack[256];
-int sp = -1;
+
 
 
 
 int main(){
-  std::string str_command;
-  std::cout << "> ";
-  std::cin >> str_command;
-  std::vector<int> program = cin_parser(str_command);
-
   int ip = 0;
   bool running = true;
 
   while (running){
-    int opcode = program[ip]; // команда, которая выполняется сейчас
+    std::string str_command;
+    std::cout << "> ";
+    std::getline(std::cin, str_command);
+    std::vector<int> program = cin_parser(str_command);
 
-    switch (opcode){
-      case HALT:
-        running = false;
-        break;
+    int stack[1024];
+    int sp = -1;
+    ip = 0;
 
-      case PUSH:
-        ip++;
-        stack[++sp] = program[ip]; 
-        break;
+    while (ip < program.size()){
+      int opcode = program[ip]; // команда, которая выполняется сейчас
 
-      case ADD: {
-        int a = stack[sp--];
-        int b = stack[sp--];
-        stack[++sp] = a + b;
-        break;}
+      switch (opcode){
+        case HALT:
+          running = false;
+          break;
 
-      case SUB:
-        {int arg1 = stack[sp--];
-        int arg2 = stack[sp--];
-        stack[++sp] = arg1 - arg2;
-        break;}
-      
-      case PRINT: {
-        std::cout << stack[sp--] << std::endl;
-        break;
-      }
+        case PUSH:
+          ip++;
+          stack[++sp] = program[ip]; 
+          break;
+
+        case ADD: {
+          int a = stack[sp--];
+          int b = stack[sp--];
+          stack[++sp] = a + b;
+          break;}
+
+        case SUB:
+          {int arg1 = stack[sp--];
+          int arg2 = stack[sp--];
+          stack[++sp] = arg1 - arg2;
+          break;}
         
-      
-      default:{
-        std::cout << "Unexpexted argument" << std::endl;
-        break;}
+        case PRINT: {
+          std::cout << stack[sp--] << std::endl;
+          break;
+        }
+          
+        
+        default:{
+          std::cout << "Unexpected argument" << std::endl;
+          break;}
+      }
+      ip++; 
     }
-    ip++; 
+
 
   }
   
