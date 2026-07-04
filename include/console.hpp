@@ -13,7 +13,12 @@ enum OpCodes {
   PUSH = 1,
   ADD = 2,
   SUB = 3,
-  PRINT = 4
+  MUL = 4,
+  DIV = 5,
+  MOD = 6,
+  POW = 7,
+  SQRT = 8,
+  PRINT = 9
 };
 
 
