@@ -18,7 +18,9 @@ enum OpCodes {
   MOD = 6,
   POW = 7,
   SQRT = 8,
-  PRINT = 9
+  JUMP = 9,
+  JIF = 10,
+  PRINT = 11
 };
 
 
