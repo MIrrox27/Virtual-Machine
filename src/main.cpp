@@ -21,7 +21,7 @@ int main(){
     std::vector<int> program = cin_parser(str_command);
 
     int stack[1024];
-    stack[0] = NULL;
+    stack[0] = 1;
     int sp = 0;
     ip = 0;
 
