@@ -9,8 +9,6 @@
 
 
 
-
-
 int main(){
   int ip = 0;
   bool running = true;
@@ -51,6 +49,22 @@ int main(){
           stack[++sp] = arg2 - arg1;
           break;
         }
+
+        case MUL: {
+          int arg1 = stack[sp--];
+          int arg2 = stack[sp--];
+          stack[++sp] = arg1 * arg2;
+          break;
+        }
+
+        case DIV: {
+          int arg1 = stack[sp--];
+          int arg2 = stack[sp--];
+          stack[++sp] = arg2 / arg1;
+          break;
+        }
+
+        //case MOD: {}
         
         case PRINT: {
           std::cout << stack[sp] << std::endl;
