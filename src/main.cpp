@@ -22,7 +22,8 @@ int main(){
     std::vector<int> program = cin_parser(str_command);
 
     int stack[1024];
-    int sp = -1;
+    stack[0] = NULL;
+    int sp = 0;
     ip = 0;
 
     while (ip < program.size()){
@@ -44,14 +45,15 @@ int main(){
           stack[++sp] = a + b;
           break;}
 
-        case SUB:
-          {int arg1 = stack[sp--];
+        case SUB:{
+          int arg1 = stack[sp--];
           int arg2 = stack[sp--];
-          stack[++sp] = arg1 - arg2;
-          break;}
+          stack[++sp] = arg2 - arg1;
+          break;
+        }
         
         case PRINT: {
-          std::cout << stack[sp--] << std::endl;
+          std::cout << stack[sp] << std::endl;
           break;
         }
           
