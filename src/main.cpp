@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cmath>
 #include "console.hpp"
 
 
@@ -65,6 +66,21 @@ int main(){
         }
 
         //case MOD: {}
+
+        case POW: {
+          int arg1 = stack[sp--];
+          int arg2 = stack[sp--];
+          stack[++sp] = pow(arg2, arg1);
+          break;
+        }
+
+        case SQRT: {
+          int arg1 = stack[sp--];
+          int arg2 = stack[sp--];
+          stack[++sp] = pow(arg2, 1.0/(float)arg1);
+          break;
+        }
+        
         
         case PRINT: {
           std::cout << stack[sp] << std::endl;
