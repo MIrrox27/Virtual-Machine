@@ -80,6 +80,12 @@ int main(){
           stack[++sp] = pow(arg2, 1.0/(float)arg1);
           break;
         }
+
+        case JUMP: {
+          ip++;
+          ip = program[ip];
+          break;
+        }
         
         
         case PRINT: {
