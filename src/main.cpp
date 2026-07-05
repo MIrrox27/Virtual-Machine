@@ -9,16 +9,29 @@
 
 
 
-int main(){
+int main(int argc, char* argv[]){
   int ip = 0;
   bool running = true;
+  std::string str_command;
+
+  /*
+    Args 
+     * index = 1:
+        "-r" - run bytecode
+      * index = 2:
+        ```path``` - path to file with  bytecode
+  */
+  
+  if (argc >= 3) str_command = get_bytecode(argv[2]);
+  else str_command = "";
 
   while (running){
-    std::string str_command;
-    std::cout << "> ";
-    std::getline(std::cin, str_command);
+    if (argc = 1){
+      str_command = "";
+      std::cout << "> ";
+      std::getline(std::cin, str_command);
+    }
     std::vector<int> program = cin_parser(str_command);
-
     int stack[1024];
     stack[0] = 1;
     int sp = 0;
