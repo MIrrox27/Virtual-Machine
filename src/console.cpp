@@ -58,16 +58,18 @@ std::vector<int> cin_parser(std::string full_command){
 
 std::string get_bytecode(std::string path){
   std::ifstream file(path);
-  std::string line;
-  std::string buffer;
+
   if (!file.is_open()){
     std::cerr << "Invalid path: " << path << std::endl;
     return {};
   }
 
-  while (std::getline(file, line)){
-    buffer += (" " + line);
-  }
+  std::string line;
+  std::string buffer;
+
+  while (std::getline(file, line))
+    buffer += (" " + line); // перевожу весь файл в одну строку для выполнения 
+  
   file.close();
   return buffer;
 }
