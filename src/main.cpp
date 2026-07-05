@@ -39,9 +39,9 @@ int main(){
           break;
 
         case ADD: {
-          int a = stack[sp--];
-          int b = stack[sp--];
-          stack[++sp] = a + b;
+          int arg1 = stack[sp--];
+          int arg2 = stack[sp--];
+          stack[++sp] = arg2 + arg1;
           break;}
 
         case SUB:{
@@ -65,7 +65,12 @@ int main(){
           break;
         }
 
-        //case MOD: {}
+        case MOD: {
+          int arg1 = stack[sp--];
+          int arg2 = stack[sp--];
+          stack[++sp] = arg2 % arg1;
+          break;
+        }
 
         case POW: {
           int arg1 = stack[sp--];
