@@ -9,7 +9,6 @@
 
 
 
-
 int main(){
   int ip = 0;
   bool running = true;
@@ -29,6 +28,12 @@ int main(){
       int opcode = program[ip]; // команда, которая выполняется сейчас
 
       switch (opcode){
+        case ERR:{
+          ip++;
+          std::cerr << "Error: " << program[ip];
+          break;
+        }
+
         case HALT:
           running = false;
           break;
