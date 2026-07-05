@@ -8,6 +8,7 @@
 #include <cctype>
 #include <charconv>
 #include <iostream>
+#include <fstream>
 
 #include "console.hpp"
 
@@ -53,4 +54,20 @@ std::vector<int> cin_parser(std::string full_command){
   }
 
   return full_command_vec;
+}
+
+std::string get_bytecode(std::string path){
+  std::ifstream file(path);
+  std::string line;
+  std::string buffer;
+  if (!file.is_open()){
+    std::cerr << "Invalid path: " << path << std::endl;
+    return {};
+  }
+
+  while (std::getline(file, line)){
+    buffer += (" " + line);
+  }
+  file.close();
+  return buffer;
 }
