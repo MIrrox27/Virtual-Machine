@@ -14,4 +14,4 @@ include_directories(include)
 # Собираем все файлы .cpp в папке src автоматически
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
-add_executable(Virtual-Machine ${SOURCES})
+add_executable(vm ${SOURCES})
