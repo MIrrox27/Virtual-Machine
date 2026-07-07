@@ -26,7 +26,7 @@ int main(int argc, char* argv[]){
   else str_command = "";
 
   while (running){
-    if (argc = 1){
+    if (argc == 1){
       str_command = "";
       std::cout << "> ";
       std::getline(std::cin, str_command);
