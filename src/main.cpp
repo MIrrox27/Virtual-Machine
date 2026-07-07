@@ -116,6 +116,15 @@ int main(int argc, char* argv[]){
             ip = program[ip];
           break;
         }
+
+        case CMP_EQ: {
+          ip++;
+          int arg1 = stack[sp--];
+          int arg2 = stack[sp--];
+          if (arg2 == arg1)
+            ip = program[ip];
+          break;
+        }
         
         case PRINT: {
           std::cout << stack[sp] << std::endl;
