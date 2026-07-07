@@ -33,7 +33,7 @@ int main(int argc, char* argv[]){
     }
     std::vector<int> program = cin_parser(str_command);
     int stack[1024];
-    stack[0] = 1;
+    stack[0] = START;
     int sp = 0;
     ip = 0;
 
