@@ -112,7 +112,7 @@ int main(int argc, char* argv[]){
         
         case JIF: {
           ip++;
-          if (program[ip] != 0)
+          if (stack[sp] != 0)
             ip = program[ip];
           break;
         }
