@@ -7,7 +7,7 @@
 #include <cmath>
 #include "console.hpp"
 
-void repl(){
+int repl(){
 
   int ip = 0;
   bool running = true;
@@ -145,4 +145,5 @@ void repl(){
       ip++; 
     }
   }
+  return 0;
 }
