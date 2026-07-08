@@ -4,6 +4,6 @@
 #ifndef REPL_HPP
 #define REPL_HPP
 
-void repl();
+int repl();
 
 #endif
