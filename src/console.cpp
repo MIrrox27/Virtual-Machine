@@ -56,7 +56,7 @@ std::vector<int> cin_parser(std::string full_command){
   return full_command_vec;
 }
 
-std::string get_bytecode(std::string path){
+std::string get_code(std::string path){
   std::ifstream file(path);
 
   if (!file.is_open()){
