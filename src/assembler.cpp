@@ -4,8 +4,14 @@
 
 #include <iostream>
 #include <fstream>
+#include <filesystem> 
 #include <vector>
 #include <iterator>
+#include <sstream>
+
+#include "console.hpp"
+
+namespace fs = std::filesystem;
 
   // Получение бинарной информации из файла
 std::vector<int> get(std::string path) {
@@ -24,4 +30,19 @@ std::vector<int> get(std::string path) {
     
     return binary_buffer;
   
+}
+
+
+std::string assembly(std::string path){
+
+  fs::path pathF = path;
+  pathF.replace_extension(".axb");
+
+  std::vector<int> command_opcodes = parse_code(get_code(path));
+  std::ofstream file(pathF, std::ios::binary);
+
+  for (int value : command_opcodes){
+    file.write(reinterpret_cast<char*>(&value), sizeof(value));
+  }
+
 }
