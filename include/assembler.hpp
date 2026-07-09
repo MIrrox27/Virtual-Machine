@@ -8,7 +8,7 @@
 #include <string>
 
 std::vector<int> get(std::string path); // получение байт из файла 
-void assembly(); // если расширение не .axn то пересобирает в новый исполняемый файл с числами
-void execute(); // выполнить код (передаются байты)
+std::string assembly(std::string path); // если расширение не .axb то создает новый файл с числами в той же папке, вернет путь к файлу
+void execute(std::vector<int> bytes); // выполнить код (передаются байты)
 
 #endif
