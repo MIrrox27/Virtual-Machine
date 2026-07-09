@@ -19,7 +19,7 @@ int repl(){
     std::cout << "> ";
     std::getline(std::cin, str_command);
     
-    std::vector<int> program = cin_parser(str_command);
+    std::vector<int> program = parse_code(str_command);
     int stack[1024];
     stack[0] = START;
     int sp = 0;
