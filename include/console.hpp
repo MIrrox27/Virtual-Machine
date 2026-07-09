@@ -42,7 +42,7 @@ std::string args[] = {
   };
 */
 
-std::vector<int> cin_parser(std::string command);
+std::vector<int> parse_code(std::string command);
 bool is_number(const std::string& str);
 std::string get_code(std::string path);
 
