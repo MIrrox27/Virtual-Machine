@@ -35,7 +35,7 @@ std::map<std::string, OpCodes> StringCommands = {
 };
 
 // функция для обработки полной команды, пример: PUSH 10 PUSH 20 ADD PUSH 5 SUB PRINT HALT
-std::vector<int> cin_parser(std::string full_command){ 
+std::vector<int> parse_code(std::string full_command){ 
   std::stringstream ss(full_command);
   std::string command;
   std::vector<int> full_command_vec;
