@@ -25,22 +25,24 @@ int main(int argc, char* argv[]){
         ```path``` - path to file with  bytecode
   */
 
-  if (argc >= 3 && argv[1] == "-r"){ // если тег "-r" то будут читаться и выполняться байты
+  if (argc >= 3 && std::string(argv[1]) == "-r"){ // если тег "-r" то будут читаться и выполняться байты
     std::vector<int> bytes = get(argv[2]);
     execute(bytes);
   }
 
-  else if (argc >= 3 && argv[1] == "-cr"){ // если тег "-cr" то команда сначала переведется в байт код (в отдельный файл) и только потом запустится 
+  else if (argc >= 3 && std::string(argv[1]) == "-cr"){ // если тег "-cr" то команда сначала переведется в байт код (в отдельный файл) и только потом запустится 
     std::string path = assembly(argv[2]);
     std::vector<int> bytes = get(path);
     execute(bytes);
-
   }
 
-  else if (argc >= 3 && argv[1] == "-c")
+  else if (argc >= 3 && std::string(argv[1]) == "-c"){
     std::string path = assembly(argv[2]);
+  }
   
-  else repl();
+  else {
+    repl();
+  }
   
 
   return 0;
