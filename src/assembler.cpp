@@ -24,11 +24,13 @@ std::vector<int> get(std::string path) {
     return {};
   }
   
-  std::vector<int> binary_buffer {std::istream_iterator<int>(file),
-  std::istream_iterator<int>()};
+  std::vector<int> binary_buffer;
+  int val;
+  while (file.read(reinterpret_cast<char*>(&val), sizeof(val))) {
+    binary_buffer.push_back(val);
+  }
   file.close();
-    
-    return binary_buffer;
+  return binary_buffer;
   
 }
 
