@@ -16,8 +16,3 @@ At this moment, program can input 11 codes:
   * JUMP <ip> - jump to new ip
   * JIF <ip> - jump to new ip, if ended element not 0 - true
   * PRINT - print ended element to console
-
-### 
-
-
-

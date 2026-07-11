@@ -14,7 +14,7 @@
 
 int main(int argc, char* argv[]){
   
-  std::cout << "Virtual Machine. Author: github.com/MIrrox27/Virtual-Machine" <<std::endl;
+  std::cerr << "Virtual Machine. Author: github.com/MIrrox27/Virtual-Machine" <<std::endl;
   /*
     Args 
      * index = 1:
