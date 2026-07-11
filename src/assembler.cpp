@@ -44,5 +44,6 @@ std::string assembly(std::string path){
   for (int value : command_opcodes){
     file.write(reinterpret_cast<char*>(&value), sizeof(value));
   }
-
+  return pathF.string();
 }
+void execute(std::vector<int> bytes){};
